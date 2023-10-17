@@ -1,0 +1,97 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Sliding : MonoBehaviour
+{
+    [Header("References")]
+    public Transform orientation; // to keep track where the player is looking. 
+    public Transform playerObj;
+    private Rigidbody rb;
+    private PlayerMovement pm;
+
+    [Header("Sliding")]
+    public float maxSlideTime;
+    public float slideForce;
+    private float slideTimer;
+
+    public float slideYScale;
+    private float startYscale;
+
+
+    [Header("Input")]
+    public KeyCode slideKey = KeyCode.LeftControl;
+    private float horizontalInput;
+    private float verticalInput;
+
+   //private bool sliding;
+
+    private void Start()
+    {
+
+        rb = GetComponent<Rigidbody>();
+        pm = GetComponent<PlayerMovement>();
+
+        startYscale = playerObj.localScale.y;
+    }
+
+    private void Update()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal"); // A and D movement
+        verticalInput = Input.GetAxisRaw("Vertical"); // W and S movement
+
+        if (Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0)) 
+            StartSlide(); // when I pressed the left ctrl + movement = slide
+        if (Input.GetKeyUp(slideKey) && pm.sliding)
+            StopSlide(); // when release the keys, I stop sliding.  
+    }
+
+    private void FixedUpdate()
+    {
+        if (pm.sliding)
+            SlidingMovement(); //while you are sliding, this code will call it Sliding movement
+
+    }
+    private void StartSlide()
+    {
+        pm.sliding = true;
+        // when sliding, it would only affect the playerObj's Y scale or w/e what we set up witht eh slideYScale to be. 
+        playerObj.localScale = new Vector3(playerObj.localScale.x, slideYScale, playerObj.localScale.z);
+        rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+
+        slideTimer = maxSlideTime;
+    }
+
+    private void SlidingMovement()
+    {
+        // we need to caculate the input direction 
+        Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //with this code above, you can slide any direction based on what keys  you are pressing.  NEAT!
+
+        //sliding normal
+        if(!pm.OnSlope() || rb.velocity.y > -0.1f)
+        {
+            rb.AddForce(inputDirection.normalized * slideForce, ForceMode.Force);
+
+            slideTimer -= Time.deltaTime;
+
+        }
+
+        // sliding down a slope
+        else
+        {
+            rb.AddForce(pm.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
+        }
+        // time to add the momentum with your slide
+
+        //Slide timer
+        if (slideTimer <= 0)
+            StopSlide();
+    }
+    private void StopSlide()
+    {
+        pm.sliding = false;
+        playerObj.localScale = new Vector3(playerObj.localScale.x, startYscale, playerObj.localScale.z); 
+    }
+}
+
