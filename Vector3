@@ -1,0 +1,55 @@
+This notes is based on How to Programe: Camera-Relative Movement.  
+  In doing so, we must understand Vector3. 
+
+In Math, we can use Vectors to describe Movement. Vectors are typically visualed as a line with an arrow at one end.  The Length of the line the vector's magnitude and the arrow represents the vector's direction. 
+  The Vector consists of 2 points.  The head and the tail.  
+    The head represent the placement of the arrow and signifying which direction the vetor is pointed. 
+  Programing in unity, movement in 3D space defined and performed using a Vector3.  A Vector3 has direction and magitude which are calculated from the head and the tail.  
+    However, there are 3 points in 3D space, X,Y,Z // well duh. 
+      When instantiatign a new Vector3, the tail of a Vector3 will always be 0 on the X, Y,Z axis.  WHile the head can be at location in 3D space. 
+example
+Vector3 (0,0,0)
+Vector3 exampleVector = New Vector3(2,0,0);
+
+A vector3's direction can be calculated from the angles generated from all 3 axis to the Vector.  Now, "Direction" is a key term to understand here.
+  All movement has direction, and in Unity, positive momvent on the Z axis.
+  Positive movment in the Z-axis is considered "Foward" movement.  
+  Positive movement in the Y-axis is considered "Up" movement.
+  Positive momvent in the X-axis is considered "Right" movement.
+Each of these can be represented by "Unit Vector".
+A unity vector is a normalized Vector, and that means it's magnitude, or tatal length is 1. 
+  Forward Z, Up Y, and Right X, the unit vector for the forward direction is 0,0,1. 
+ Unit Vector: Up direction = 0,1,0.  Right = 1,0,0. 
+
+Now if we want to continue to have a Camera-Relative Movement.  We want the data from the camera position.  
+Vector3 forward = Camera.main.transform.forward;
+Vector3 right = Camera.main.transform.right;
+  These are both Normalized vectors. Meaning they are both what we now understand to be unit vectors: they have the length of 1(magitude). 
+
+There are many possible ways it can be programmed in Unity.  We can use multiple different methods. We could use...
+
+void HandleMovment() {
+  transform.Tranlate(new vector3(0,0,1) * Time.deltaTime); // transform.Translate method
+  transofrm.postion += new Vector3(0,0,1) * Time.deltaTime; // we can also update transorms's position directly
+  _characterController.Move(new Vector3(0,0,1) * Time.deltaTime); //unity BBIC
+  rb.AddForce(new Vector3(0.0,1) * Time.deltaTime); // we can move using physics with AddForce
+  rb.AddRelativeForce(new Vector3(0,0,1) * Time.deltaTime); // we can move using AddRelativeForce
+  rb.MovePosition(new Vector3(0,0,1) *Time.deltaTime); // MovePosition methods
+  rb.velocity = new Vector3(0.0.1); directly setting the velocity of a RB component. 
+All of these options either apply a Vector 3 to the gameOBj or they are a Vector3 attribute of the gameObj which we are then overriding.
+  any of the methods could be good practice or there are other alternative, the point of all this to this is to understand "Coordinate Space"
+
+-Coordinate Space- 
+  There are two "Spaces" in which the gameOjb operates and can move through Unity's coordinate system using Vector3s..  There are World.Space and Local.Space.
+World Space
+  is a Static Coordinate System. The Vector3 doesn't change and if we to apply a transformation to the position of a gameObj relative to t World Space=, the gameObj would always move along these constant X,Y,Z axes. 
+Local Space
+  Applying transform values relative to Local Space applies movement to the local coordinate system. Whle the static and unchanging World.Space stands as the source of truth in Unity because it doesn't change, 
+    local space is variable and is based rotation of the gameObj relative to the world's default rotation. It's this rotation that determines the forward, up, and right direction, and the axes in local space. 
+Both are vairable are usuable.  
+World.Space can be converted to Local.Space and Local.Space can be converted to World.Space or another Local.Space. if you convert Local space to World.Space, the coords will be different.  
+    It could be something like (6,-6,-4) It will depends on gameObj's rotation. 
+
+Stepping back into prevous code on the Vector3 foward = Camera.main.transform.right; This cmera-based momvent code privode the normalized direction vectors on our camera. Which are the directions we want out charcter to move.
+  We undestands Camera.Main.Transform.right is the camera's right Vector 3 that hs values relative to world space, which is why it isn't guranteed to be 0,0,1.
+    But relative to local space, it would be.  The world right vector relative to local.space might be something different. 
