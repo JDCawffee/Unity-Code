@@ -1,1 +1,53 @@
 Rigid Body 
+
+There are multiple Character Controller Fundamentals (built-in, Custom, RigidBody.
+  It depends on the game. 
+
+What is a Character Controller?
+  A character controller is a component (or combination of components) attached to uor character gameOb that serves the purpose of providing movement to our character interact the colliders in the game such as floor, walls, etc
+    Movement + Collision Detection.
+
+-CharacterController-
+
+  Unity has a built-in character controller component. //Neat!
+    It has list of properties, check the Unity API. 
+    Unity Built-in overview: It has basic character momvent to walk, , stairs, slopes, uneven ground and collision detection.  It is the fastest method if you are using unity.  Some Developer programs may have theses setup. 
+
+-RigidBody-
+  We can have the character moving based on the RigidBody (RB). 
+    Defination: RigidBodies are components that allow gameObj to interact with physics in Real-time. In unity, the  physics properties includes gravity, mass, drag, momentum, and etc. When we add RB to our character, 
+  we are telling Unity we want the character to move and interact in the world space. 
+    If we attach a collider to our CharacterObj, the physics system will handle collision detection against most other gameObjs that have colliders.
+    API link: 
+      https://docs.unity3d.com/ScriptReference/Rigidbody.html
+    Keep in mind, the built in controller vs RB has different classes.  
+
+-RigidBody: isKinematic-
+ One of the key properties of RB is the "isKinematic" property.  WHen checked, our gameOBj's RB is considered "Kinsemetic" and when unchecked our RB is considered Dynamic.
+      Kinematc disregards incoming physics forces from the gameObj, like gravity and the Kinematic gameObj isn't moved by collision by default collision.  
+      The isKinmeatic property essentially tells unity that the gameObj isn't static, so it is intended to move and benefit of collision detection but we can write the code on how they react with each others.  
+
+-RighidBody: Dynamic-
+Dynamic is physics based and therefore intended to abide by the "laws" of unity's physics engine (or other game engines).
+    the avaible functions for RB movment will apply different foces to the gameOBj like bullet coming your way, ball falling.
+  Dynamic RB gameObj will automatically be impacted by other forces, like throwing a crate at the player or will not walk through staic wall. 
+
+Overview from Character Controller, Dynamic, isKinemaatic
+  Both of the RB inherently interact with physics while BICC (built in Character Conroller) doesn not. 
+  By default, Dynamic RB directly inpacted by all physics forces while IsKinematic (IKRB) only impact other dynamic RB (DRB) gameObjs. They are not impacted by DRB and IKRB gameObj.
+    So BICC adn IKRB will not be affected by physics forces, and only move when and how our codes tells it to.  
+    Keep in mind, BICC and IKRB , gravity will not be automatically applied to our gameObj, so no momentum.  We have to write the code.  Unity Devs did create CharacterConroller.SimpleMove for the BICC that applies gravity by default. 
+    BBIC can interact with stairs and slopes normally but will slided down when landed on or stop in-place, on a highly angled slop.  Meanwhile, DRB will slide down by default but will not drag. Also, DRB cannot handle stairs. CODE THAT SHIT
+    DRB cannot detect the ground unlike BICC. Again, it needs to be program in. 
+  BBIC is quicker than RB built you still have to programmed the codes for both sides. 
+IKRB | Custom
+  YOu have to programmed stair handling, built in gravity, slope Traversal, Momentum-based Momvent, snappy movement, physics interaction, ground Deection 
+    Another word, custom is more complex with it's codes but it has most flexible.  
+
+Depending on the game, any of them could work.  
+Don't be hesitate buy a IKRB from the assets store.
+
+
+ 
+  
+
