@@ -34,13 +34,13 @@ Dynamic is physics based and therefore intended to abide by the "laws" of unity'
 
 Overview from Character Controller, Dynamic, isKinemaatic
   Both of the RB inherently interact with physics while BICC (built in Character Conroller) doesn not. 
-  By default, Dynamic RB directly inpacted by all physics forces while IsKinematic (IKRB) only impact other dynamic RB (DRB) gameObjs. They are not impacted by DRB and IKRB gameObj.
-    So BICC adn IKRB will not be affected by physics forces, and only move when and how our codes tells it to.  
-    Keep in mind, BICC and IKRB , gravity will not be automatically applied to our gameObj, so no momentum.  We have to write the code.  Unity Devs did create CharacterConroller.SimpleMove for the BICC that applies gravity by default. 
+  By default, Dynamic RB directly inpacted by all physics forces while IsKinematic (KRB) only impact other dynamic RB (DRB) gameObjs. They are not impacted by DRB and KRB gameObj.
+    So BICC adn KRB will not be affected by physics forces, and only move when and how our codes tells it to.  
+    Keep in mind, BICC and KRB , gravity will not be automatically applied to our gameObj, so no momentum.  We have to write the code.  Unity Devs did create CharacterConroller.SimpleMove for the BICC that applies gravity by default. 
     BBIC can interact with stairs and slopes normally but will slided down when landed on or stop in-place, on a highly angled slop.  Meanwhile, DRB will slide down by default but will not drag. Also, DRB cannot handle stairs. CODE THAT SHIT
     DRB cannot detect the ground unlike BICC. Again, it needs to be program in. 
   BBIC is quicker than RB built you still have to programmed the codes for both sides. 
-IKRB | Custom
+KRB | Custom
   YOu have to programmed stair handling, built in gravity, slope Traversal, Momentum-based Momvent, snappy movement, physics interaction, ground Deection 
     Another word, custom is more complex with it's codes but it has most flexible.  
 
