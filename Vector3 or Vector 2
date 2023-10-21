@@ -143,3 +143,38 @@ right.y = 0;
 forward = forward.normalized;
 right = right.normalized;
 
+
+////////////// Final Code for Camera Relative Character Movement for Vector3 //////////////////////////////
+
+private void MovePlayerRelativeToCamera()
+{
+    //player input
+    float playerVerticalInput = Input.GetAxis("Vertical");
+    float playerHorizontalInput = Input.GetAxis("Horizontal");
+
+    
+    // get Camera Normalized Directional Vectors
+    Vector3 forward = Camera.main.transform.forward;
+    Vector3 right = Camera.main.transform.right;
+    // 0 out the y so when you tilt the camera in the Y-Axis, then the character doesn't move up or down.  They will stay on the ground. 
+    forward.y = 0; 
+    right.y = 0;
+    // after adding the value with y axis, we are normalizing the value with Vector 3.  
+    forward = forward.normalized;
+    right = right.normalized;
+
+    // Create direction-relative-inputs vectors
+    Vector3 forwardRelativeVerticalInput = playerVerticalInput * forward;
+    Vector3 rightRelativeHorizontalInput = playerHorizontalInput * right;
+
+    // Create and apply camera relative movement
+    Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeHorizontalInput;
+    this.transform.Translate(cameraRelativeMovement * speed * Time.deltaTime, Space.World);
+    
+    if (cameraRelativeMovement != Vector3.zero)
+    {
+        transform.forward = cameraRelativeMovement;
+    }
+
+   
+}
