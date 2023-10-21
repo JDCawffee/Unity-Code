@@ -7,11 +7,23 @@ In Math, we can use Vectors to describe Movement. Vector is a measured of direct
     The Vector consists of 2 points.  The head and the tail.  
       The head represent the placement of the arrow and signifying which direction the vetor is pointed. 
   Programing in unity, movement in 3D space defined and performed using a Vector3.  A Vector3 has direction and magitude which are calculated from the head and the tail.  
-    However, there are 3 points in 3D space, X,Y,Z // well duh. 
+    However, there are 3 points in 3D space, X,Y,Z // well duh.   
+      Vector 2 has 2 points in 2D space X,Y
       When instantiatign a new Vector3, the tail of a Vector3 will always be 0 on the X, Y,Z axis.  WHile the head can be at location in 3D space. 
 example
 Vector3 (0,0,0)
 Vector3 exampleVector = New Vector3(2,0,0);
+
+//////////// Normalized ////////////
+We will be hearing normalized when we are dealing vector.  
+
+Defination - Normalized : referes to process of scacling vector to have a length (magitude) of 1.  Normalized is needed to make the math of the vector and calculation more predictible and consistent. 
+It will still point towards the same direction but has a length of 1. We will be using normalized for Vector3 or Vector2. 
+
+Example
+
+Vector3 originVector = new Vector (2.0f, 3.0f, -0.5);
+Vector3 normalizedVector = originsVector.normalized;
 
 ////////////////////////////////// Camera Relative Momvent code as an example for discusing VECTOR3 ///////////////////////////////////////////////////////////////////////////////////////////
 // we will be using this as reference for down below notes. //
@@ -123,7 +135,8 @@ Vector3 right = transform.InverseTransformVector(Camera.main.transform.right);
 
 Based on our current code, if you tilt the camera, our game obj will go vector3.up.  So, what we need to do to prevent this, we need to give the value of Y.  Then normalized it.  
 
-// 0 out the y so when you tilt the camera in the Y-Axis, then the character doesn't move up or down.  They will stay on the ground. 
+// 0 out the y so when you tilt the camera in the Y-Axis, then the character doesn't move up or down.  This will remove the Y value of both stored vectors and normalized them to ignore upward and downard camera angles
+  The characterObj will stay on the ground. 
 forward.y = 0; 
 right.y = 0;
    Then we normalized the Vectors
