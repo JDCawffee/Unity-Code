@@ -25,6 +25,8 @@ Example
 Vector3 originVector = new Vector (2.0f, 3.0f, -0.5);
 Vector3 normalizedVector = originsVector.normalized;
 
+Normalization is often used in variou development.  It would be use for movement and direction vectors, physics calculations, or lighting calculations.  
+
 ////////////////////////////////// Camera Relative Momvent code as an example for discusing VECTOR3 ///////////////////////////////////////////////////////////////////////////////////////////
 // we will be using this as reference for down below notes. //
 
