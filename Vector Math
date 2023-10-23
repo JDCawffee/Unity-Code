@@ -31,3 +31,10 @@ If you want to know length between two value.  Function:  distance(a,b) - abs (b
 		a + b 				a * b
 		a - b = a = (-b)		a / b = a * (1/b)
 
+/// 2-Dimnsional ///
+When we talk about dimensions, we bring up axex. 
+Fun fact, the colors based on the axes is based on RGB.  Red is X, Blue = Z, Y = Green.  Also, in unity and unreal is left handed while math is usually right handed.  
+	X = right, Y = Up, Z = forward. 
+The point in 2D are two numbers, they are also called components. 
+Vectors  kinda always orgintate from Zero because vectors doesn't have a root.  They do have a tip. (x,y).
+ Function : Vector2(x,y);
