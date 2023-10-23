@@ -1,0 +1,25 @@
+Learning the Math Aspect in the Game Engines.  Notes is based on Freya Holmmer; they are designed Shader Forge in Unity.  The Video Title is Vectors & Dot Product - math for Game Devs 
+
+
+// Part 1 //
+
+/// 1-Dimensional ///
+
+With a number line, we have numbeers (intergers) in one axis with positive and negative intergers.
+
+In Game Dev, you want to think about the humbers as a representation,not just a number.  
+
+Vectors are directions on the axis.  Question: what is the length of a vector.  You would reposnd, the length of a vector is #. 
+	// Example //
+		On the single axis, 0 to 3.  The length will be 3.  NOTEED: Length are positive number. 
+
+The direction of the vectors?  On the axis, it can be either 1 or -1.  Sometimes that is called as a sign (x).  
+	NOTED: if the sign = 0.  Depending on the implications,  it can be either return 1, 0, Error. Zero has no direction.  You usually multiply the direction  SOmetimes if the sign ended up a 0, you would perhpas return it to 1.
+		pure mathmatically, 0 has no direction.  
+
+// Function // 
+	Sign X = direction 
+					(either -1 or 1)
+To get the Lenth of a value, you want to find the absolute value.  
+
+	abs (x) = Length / Magitude
