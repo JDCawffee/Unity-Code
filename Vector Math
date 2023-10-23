@@ -11,7 +11,7 @@ In Game Dev, you want to think about the humbers as a representation,not just a 
 
 Vectors are directions on the axis.  Question: what is the length of a vector.  You would reposnd, the length of a vector is #. 
 	// Example //
-		On the single axis, 0 to 3.  The length will be 3.  NOTEED: Length are positive number. 
+		On the single axis, 0 to 3.  The length will be 3.  NOTEED: Length / Distance are positive number. 
 
 The direction of the vectors?  On the axis, it can be either 1 or -1.  Sometimes that is called as a sign (x).  
 	NOTED: if the sign = 0.  Depending on the implications,  it can be either return 1, 0, Error. Zero has no direction.  You usually multiply the direction  SOmetimes if the sign ended up a 0, you would perhpas return it to 1.
@@ -22,4 +22,12 @@ The direction of the vectors?  On the axis, it can be either 1 or -1.  Sometimes
 					(either -1 or 1)
 To get the Lenth of a value, you want to find the absolute value.  
 
-	abs (x) = Length / Magitude
+	abs (x) = Length / Magitude  // Length are positive number. 
+
+If you want to know length between two value.  Function:  distance(a,b) - abs (b-a)
+	What does it mean to add something.  Adding is an offset. you are moving or increase.  
+	Multiple is a scale.  
+		Adding and multiply is a core thing to do because you could  convert from division and subtraction to addition or multiplication if you want to. 
+		a + b 				a * b
+		a - b = a = (-b)		a / b = a * (1/b)
+
