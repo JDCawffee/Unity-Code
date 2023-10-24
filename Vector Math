@@ -106,7 +106,8 @@ NOTE: if both of your vectors are normalized and it's pointing the same directio
 
 IN THE VIDEO: They were sharing their personal experience how dot prodcut could be applied.  One of the scenerio, a ball was being thrown and they wanted to adjusted the volume when the ball hit an object/normal surface.
 	They used the dot prodcut to adjust the volume from low to Loud based on the speed/velocity and directions.
-	They noted if yoru dot product result is a negative, and you can't have negative volume, then you want to get the absolute value on the negative so it can be positive.  
+	They noted if yoru dot product result is a negative, and you can't have negative volume, then you want to get the absolute value on the negative so it can be positive.  TIMESTAMP: 2:44:20
+	They also used a dot  prodcut for the water physics. 
 
 For two vectors A and B, the dot product is represented as:
 
