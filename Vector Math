@@ -60,6 +60,17 @@ When do you want to normalized a vector?
 		If we don't normalized the vector, our objects would have different results/behavior. 
 Freya shows an example for normalized results in unity at 1:17:44.  Neat thing to note, there is a function called "Gizmos".DrawLine".
 
+In the context of C# and Unity, "normalized" typically refers to the process of scaling a vector to have a length (magnitude) of 1. This is done to make vector math and calculations more predictable and consistent. When a vector is normalized, it still points in the same direction as the original vector but has a length of 1.
+
+In Unity, you can normalize a vector by using the normalized property of the Vector3 or Vector2 struct, depending on whether you're working in 3D or 2D space. 
+For example:
+Vecotr3 originalVector = new Vector3(2.0f, 0.0f, 2.0f);
+Vector3 normalizedVector = originalVector.normalized;
+// normalizedVector will have a length of 1 whiel still pointing int he same direction. 
+
+Normalization is often used in various game development scenarios, such as when working with movement and direction vectors, physics calculations, or lighting calculations. 
+It can simplify calculations and ensure that the direction information is the primary focus without worrying about the magnitude of the vector.
+
 // Length //
 If you know how to get the lgenth of the hypotenuse then we know how to get the length of the Vector.  Pythagorean Theorem = square root √ x power of 2 + y power of 2  (you can add more components).  This is the hypotenuse of a right angle triangle. 
 Vector is -2, 3.  √ -2 * -2 + 3 * 3.  
@@ -73,5 +84,36 @@ Let's find the distance from -2, 3. Another vector for the this example will be 
 		Vector2.Distance (a,b);
 	or	(a-b).magitude
 	or	sqrt(a.x-b.x)^2+(a.y-b.y)^2 
-	 
-	
+Neat fucntion, you can draw lines in Unity
+
+/// Dot Product /// 
+Dot product a * b
+Cross Dot Product a x b
+
+We have 2 vectors. What is the dot product between vectors.  In math Library dot(a,b)
+THe result of the dot product is not a vector but a numerical value.  
+There are some cavent
+
+	The dot product, also known as the scalar product, is an operation in vector mathematics that takes two vectors and returns a single scalar (a real number). 
+	It's used to measure the cosine of the angle between two vectors and provides information about their alignment. 
+	The dot product is denoted by a dot (·) or sometimes by simply multiplying two vectors without any operator between them. 
+
+For two vectors A and B, the dot product is represented as:
+
+A · B
+
+Mathematically, the dot product of two vectors A and B is calculated as:
+
+A · B = |A| * |B| * cos(θ)
+
+Where:
+- A and B are the two vectors.
+- |A| and |B| represent the magnitudes (lengths) of the vectors A and B, respectively.
+- θ is the angle between the vectors A and B.
+
+The dot product has several important properties and applications, including:
+1. Finding the angle between two vectors: You can use the dot product formula to calculate the cosine of the angle between two vectors and then use inverse trigonometric functions to find the angle itself.
+2. Determining the projection of one vector onto another: The dot product is used to find the component of one vector in the direction of another vector. This is useful in various physics and engineering applications.
+3. Testing for orthogonality: Two vectors are orthogonal (perpendicular) to each other if their dot product is zero. This property is used in linear algebra and geometry.
+4. Calculating work done: In physics, the dot product can be used to calculate the work done by a force when it acts on an object, considering both the direction of the force and the direction of motion.
+The dot product is a fundamental concept in vector mathematics and has wide-ranging applications in physics, computer graphics, engineering, and many other fields.
