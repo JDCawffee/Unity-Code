@@ -45,3 +45,33 @@ When we talk about unit Vectors, they are directions.
 
 Normalization - The process of making a vactor normalized or the length of one is normalization.  This concept is very important. 
 	The notation of a normalized vector, you will see a V with a little hat on top of it (^) that means direction.  | v | or || v || means the length.  
+
+// Normalize//
+When do you want to normalized a vector? 
+	The concept of direction is really important. If you have an enemy at a vector point and the player is 0,0.  We need the direction to move towards the enemy target. 
+	So if you are dleaing with physic for an example, you want to add the vector to move toweards the enemy. 
+	You usually want to move at a fixed rate in terms of speed.  WHat we usually do then is you normalized the vector between the player and enmy then you have a normalized vector, which that's a direction.
+	Then once we have a normalized vector if you multipoy a number by your speed or value represent how much we want to move that direction, we are gurantee that going to be in distance per second  or 
+	that disncace is going to be in a meters because the legnth is one.  That means we get consistent movement in space.  
+	If we multiply a vector with a scaler as in a single value, we will be getting a direction along with length of whatever the value you are multiply with.  Imagine you multiply vector 3,2 by 2.  You get the end value
+	that would have a differnet length vs normalized vector multiply a distance value.   
+		(3,2) * 2 = (6,4) vs Normalized vector  (1,1) * 2 = (2,2)  The same length.  It will keep the scarler value from the normalized vector.  
+		NO matter what vector location we are at in World.Space.  When we interact with the physics, we will have consistance push, pull, gravity, etc interaction.  
+		If we don't normalized the vector, our objects would have different results/behavior. 
+Freya shows an example for normalized results in unity at 1:17:44.  Neat thing to note, there is a function called "Gizmos".DrawLine".
+
+// Length //
+If you know how to get the lgenth of the hypotenuse then we know how to get the length of the Vector.  Pythagorean Theorem = square root √ x power of 2 + y power of 2  (you can add more components).  This is the hypotenuse of a right angle triangle. 
+Vector is -2, 3.  √ -2 * -2 + 3 * 3.  
+√ 4 + 9 
+√ 13 approximate equal to  3.6 (our full length of our vector!) abs(x) = Length/Magitude.   abs(3.6) = Length/Magitude. 
+	Function
+		float = length = pt.magitude;  
+	Sometimes this can be useful.  
+Let's find the distance from -2, 3. Another vector for the this example will be 3,2.   A = -2, 3.  V = 3,2   REMBEMBER: distance (a,b) = abs(b-a)
+	Function: 
+		Vector2.Distance (a,b);
+	or	(a-b).magitude
+	or	sqrt(a.x-b.x)^2+(a.y-b.y)^2
+	
+	
