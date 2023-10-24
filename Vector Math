@@ -92,7 +92,13 @@ Cross Dot Product a x b
 
 We have 2 vectors. What is the dot product between vectors.  In math Library dot(a,b)
 THe result of the dot product is not a vector but a numerical value.  
-There are some cavent
+There are some cavent.  In order to work, we required 1 or both vector point be normalized. A has to be length of 1. It will not work out if none of them are normalized, then it doesn't really projecct. 
+You can change the length with B.  It doesn't matter which direction you do, you will get the same result.
+Dot Product can be negative. It is misleading to call it a distance.  
+NOTE: if both of your vectors are normalized and it's pointing the same direction. The value will be 1. 
+	Perpedicular = 0
+	opposite direction = -1 
+	Depending on the direction it can go between ~ .99 to ~ -.99 
 
 	The dot product, also known as the scalar product, is an operation in vector mathematics that takes two vectors and returns a single scalar (a real number). 
 	It's used to measure the cosine of the angle between two vectors and provides information about their alignment. 
@@ -105,6 +111,8 @@ A · B
 Mathematically, the dot product of two vectors A and B is calculated as:
 
 A · B = |A| * |B| * cos(θ)
+
+Fron the video: dot(a,b) = a.x * b.x + a.y * b.y
 
 Where:
 - A and B are the two vectors.
