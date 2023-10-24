@@ -1,5 +1,5 @@
 Learning the Math Aspect in the Game Engines.  Notes is based on Freya Holmmer; they are designed Shader Forge in Unity.  The Video Title is Vectors & Dot Product - math for Game Devs 
-
+They will be teaching Vector Math, trigometry, Matrix.  Manuplating values.  
 
 // Part 1 //
 
@@ -38,3 +38,10 @@ Fun fact, the colors based on the axes is based on RGB.  Red is X, Blue = Z, Y =
 The point in 2D are two numbers, they are also called components. 
 Vectors  kinda always orgintate from Zero because vectors doesn't have a root.  They do have a tip. (x,y).
  Function : Vector2(x,y);
+Neat thing about math we can do, we can create varible while MATH can unreadable, and the notations can be confusing.  
+	Exampele bold V means something, while non-bold V represent something, and cursive V means something else. On paper, it can be difficult to read.  //side tangent
+
+When we talk about unit Vectors, they are directions. 
+
+Normalization - The process of making a vactor normalized or the length of one is normalization.  This concept is very important. 
+	The notation of a normalized vector, you will see a V with a little hat on top of it (^) that means direction.  | v | or || v || means the length.  
