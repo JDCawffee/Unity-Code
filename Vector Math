@@ -104,6 +104,10 @@ NOTE: if both of your vectors are normalized and it's pointing the same directio
 	It's used to measure the cosine of the angle between two vectors and provides information about their alignment. 
 	The dot product is denoted by a dot (·) or sometimes by simply multiplying two vectors without any operator between them. 
 
+IN THE VIDEO: They were sharing their personal experience how dot prodcut could be applied.  One of the scenerio, a ball was being thrown and they wanted to adjusted the volume when the ball hit an object/normal surface.
+	They used the dot prodcut to adjust the volume from low to Loud based on the speed/velocity and directions.
+	They noted if yoru dot product result is a negative, and you can't have negative volume, then you want to get the absolute value on the negative so it can be positive.  
+
 For two vectors A and B, the dot product is represented as:
 
 A · B
