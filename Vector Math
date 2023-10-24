@@ -72,6 +72,6 @@ Let's find the distance from -2, 3. Another vector for the this example will be 
 	Function: 
 		Vector2.Distance (a,b);
 	or	(a-b).magitude
-	or	sqrt(a.x-b.x)^2+(a.y-b.y)^2
+	or	sqrt(a.x-b.x)^2+(a.y-b.y)^2 
 	 
 	
